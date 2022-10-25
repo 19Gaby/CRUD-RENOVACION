@@ -228,7 +228,7 @@ https://templatemo.com/tm-551-stand-blog
 
       function eliminar(title){
         console.log('hola si entre a la funcion');
-        alert('Si entre hijo de tu puta madre' + title);
+        alert('Equipo eliminado' + title);
       } 
     </script>
     
