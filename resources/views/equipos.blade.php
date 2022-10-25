@@ -169,8 +169,10 @@ https://templatemo.com/tm-551-stand-blog
                       <td>{{$item->title}}</td>
                       <td>{{$item->date_borrow}}</td>
                       <td>{{$item->hora_entregar}}</td>
-                      <td> <button onclick="eliminar({{$item->title}})" type="button"
-                        class="btn btn-danger btn-sm btn-icon-text"><i class='bx bxs-message-alt-x'></i></button> </td>
+                      <td>
+                        <button onclick="eliminar('titulo')" type="button"
+                        class="btn btn-danger btn-sm btn-icon-text"></button>
+                      </td>
                     </tr>
                     @endforeach
                   </tbody>
@@ -208,30 +210,8 @@ https://templatemo.com/tm-551-stand-blog
     <script src="assets/js/accordions.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    require_once "connection/Connection.php"
-
-    class Acciones {
-
-      $db = new Connection(){
-        $query = "SELECT *FROM clientes";
-        $resultado = $db->query($query);
-        $datos = array();
-        if($resultado->num_rows) {
-        while($row = $resultado->fetch_assoc()) {
-          $datos[] = [
-              'id' => $row['id']
-              
-          ];
-        }
-        }
-public static function insert(){h
-  $db = new conection();
-  $query = "INSERT INTO"
-  VALUES('".$nombre."'");
-}
         
-      }
-    }
+    
     <script>
           $( document ).ready(function() {
           $('#modalAgregar').modal('toggle')
@@ -247,64 +227,8 @@ public static function insert(){h
       }
 
       function eliminar(title){
-        Swal.fire({
-                title: "Eliminar equipo",
-                text: "¿Seguro de eliminar equipo?",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: "Eliminar",
-                cancelButtonText: "Cancelar",
-                allowOutsideClick: false,
-                closeOnClickOutside: false
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    let url = "{{ route('equipo.eliminar') }}";
-                    $.ajax({
-                        type: 'get',
-                        url: url + '/' + id,
-                        dataType: 'json',
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-                        success: function(data) {
-                            //console.log(data);
-                            if (data.estatus == 'ok') {
-                                Swal.fire({
-                                    title: "Equipo eliminado",
-                                    text: "Se elimino con exito",
-                                    icon: 'success',
-                                    showCancelButton: false,
-                                    confirmButtonColor: '#3085d6',
-                                    confirmButtonText: 'Ok',
-                                    allowOutsideClick: false,
-                                    closeOnClickOutside: false
-                                }).then((result) => {
-                                    location.reload();
-                                });
-                            } else {
-                                Swal.fire({
-                                    title: "Eliminar equipo",
-                                    text: "No se elimino",
-                                    icon: 'error',
-                                    showCancelButton: false,
-                                    confirmButtonColor: '#3085d6',
-                                    cancelButtonColor: '#d33',
-                                    confirmButtonText: "Aceptar",
-                                    allowOutsideClick: false,
-                                    closeOnClickOutside: false
-                                }).then((result) => {
-                                    location.reload();
-                                });
-                            }
-                        },
-                        error: function(response) {
-                            crearAlertas('Error!', "Error al eliminar el equipo", 'error');
-                        }
-                    });
-                }
-            })
+        console.log('hola si entre a la funcion');
+        alert('Si entre hijo de tu puta madre' + title);
       } 
     </script>
     
