@@ -15,12 +15,11 @@ return new class extends Migration
     {
         Schema::create('borrow', function (Blueprint $table) {
             $table->id();
-            $table->varchar('matricula');
+            $table->string('matricula');
             $table->unsignedBigInteger('book_id');
-            $table->timestamp('date_borrow');
-            $table->varchar('status');
+            $table->string('status');
             $table->timestamp('hora_entregar');
-            $table->datatime('borrow_create');
+            $table->date('borrow_create');
         });
     }
 

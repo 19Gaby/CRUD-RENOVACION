@@ -15,11 +15,10 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->varchar('codigo');
+            $table->string('codigo');
             $table->unsignedBigInteger('category_id');
             $table->timestamp('title');
             $table->date('publish_date');
-            $table->timestamp('status');
         });
     }
 
